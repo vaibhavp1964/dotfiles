@@ -1,0 +1,70 @@
+# ~/.config/starship.toml
+
+format = """$character"""
+right_format = """
+$username\
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$golang\
+$cmd_duration"""
+
+# A continuation prompt that displays two filled-in arrows
+continuation_prompt = '▶▶ '
+
+[username]
+format = '[vaibhav]($style) in '
+style_user = 'yellow'
+style_root = 'bold red'
+show_always = true
+
+[os]
+format = '[$symbol]($style)'
+style = 'bold white'
+disabled = false
+
+[os.symbols]
+Macos = " "
+
+[directory]
+style = "blue"
+
+[character]
+success_symbol = "[❯](purple)"
+error_symbol = "[❯](red)"
+
+[git_branch]
+format = "$symbol[$branch]($style)"
+style = "bright-black"
+symbol = ' '
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style)) '
+style = "cyan"
+conflicted = '='
+ahead = '⇡'
+behind = '⇣'
+diverged = '⇕'
+untracked = '?'
+modified = '!'
+staged = '[++\($count\)](green)'
+renamed = '»'
+stashed = '$'
+deleted = '✘'
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = "bright-black"
+
+[cmd_duration]
+format = "| [$duration]($style) "
+style = "yellow"
+
+[golang]
+format = 'via [$symbol($version )]($style) '
+symbol = '🐹 '
+detect_extensions = ['go']
+detect_files = ['go.mod', 'go.sum', 'go.work', 'glide.yaml', 'Gopkg.yml', 'Gopkg.lock', '.go-version']
+style = 'bold cyan'
+not_capable_style = 'bold red'
